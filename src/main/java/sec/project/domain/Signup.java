@@ -1,22 +1,19 @@
 package sec.project.domain;
 
-import javax.persistence.Entity;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+public class Signup {
 
-@Entity
-public class Signup extends AbstractPersistable<Long> {
-
+    private int id;
     private String name;
     private String address;
 
-    public Signup() {
-        super();
-    }
-
-    public Signup(String name, String address) {
-        this();
+    public Signup(int id, String name, String address) {
+        this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -33,6 +30,11 @@ public class Signup extends AbstractPersistable<Long> {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    
+    @Override
+    public String toString() {
+        return this.name + " - " + this.address;
     }
 
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Signups</title>
+    </head>
+    <body>
+
+        <h1>Signups</h1>
+        
+         <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>View</th><th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="signup : ${signups}">
+                    <td th:utext="${signup.name}">file name</td>
+                    <td><a th:href="@{/signups/{id}(id=${signup.id})}">View</a></td>
+                    <td><form th:action="@{/signups/{id}(id=${signup.id})}" th:method="delete"><input type="submit" value="Delete"/></form></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
+
